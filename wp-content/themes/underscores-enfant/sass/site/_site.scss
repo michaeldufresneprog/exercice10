@@ -64,7 +64,15 @@ a{
     display: flex;
     border: 1px solid black;
 }
-/*--------------------------------------------------------------
-## Comments
---------------------------------------------------------------*/
-//@import "primary/comments";
+.structure-nouvellle{
+    display: flex;
+    margin-bottom: 20px;
+    align-items: center;
+}
+.division-nouvelle{
+    margin-left: 20px;
+}
+.button-css{
+    background-color: green!important;
+    color: white!important;
+}

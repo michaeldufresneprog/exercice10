@@ -186,9 +186,25 @@ a {
   border: 1px solid black;
 }
 
-/*--------------------------------------------------------------
-## Comments
---------------------------------------------------------------*/
+.structure-nouvellle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 20px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.division-nouvelle {
+  margin-left: 20px;
+}
+
+.button-css {
+  background-color: green !important;
+  color: white !important;
+}
+
 /*--------------------------------------------------------------
 # Infinite scroll
 --------------------------------------------------------------*/

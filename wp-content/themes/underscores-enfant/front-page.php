@@ -98,4 +98,5 @@ do_action( 'astral_breadcrumb_area' );
     <a href="category/evenement/">regardez nos évènements</a>
 </div>
 <?php
+
 get_footer(); ?>

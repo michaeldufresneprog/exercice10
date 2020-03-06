@@ -1,6 +1,9 @@
-// let collectionBtnNouvelle = 
-// let collectionNouvelle = 
-console.log(collectionBtnNouvelle.length)
+console.log("ok");
+
+
+let collectionBtnNouvelle = document.querySelectorAll(".button-css");
+console.log(collectionBtnNouvelle);
+ //let collectionNouvelle = 
 if (collectionBtnNouvelle)
 {
     for (let btn of collectionBtnNouvelle){
