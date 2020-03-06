@@ -10,9 +10,15 @@ window.addEventListener("load",function(evt){
  //let collectionNouvelle = 
 
 
-function Ajax(evt) {
+function Ajax(evt){
+    if(evt.target.classList.contains("active")){
+        let id = evt.target.getAttribute("id");
+        viderSection(id);
+        return;
+    }
+    evt.target.classList.add("active");
     let id = evt.target.getAttribute("id");
-    let numberId = evt.target.getAttribute("data");;
+    let numberId = evt.target.getAttribute("data");
     let maRequete = new XMLHttpRequest();
     maRequete.open('GET', 'http://localhost/wordpress/wp-json/wp/v2/posts'); // modifier ici
     maRequete.onload = function () {
@@ -43,7 +49,10 @@ function creationHTML(postsData, id){
         monHtmlString += postsData.content.rendered;
     contenuNouvelle[id].innerHTML = monHtmlString; 
 }
-
+function viderSection(id){
+    let contenuNouvelle = document.querySelectorAll(".division-vide");
+    contenuNouvelle[id].innerHTML = ""; 
+}
 
 
 
