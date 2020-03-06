@@ -16,7 +16,7 @@
                             <?php
                             echo '<h1><a href="'.get_permalink( $id ).'">' . get_the_title() .  '</a></h1>';
                             echo the_excerpt();
-                            echo "<input id=" .  $compte . " data=" . get_the_ID() . " class='button-css' type='button' value='Lire la suite'>";
+                            echo "<input id=" .  $compte . " data=" . get_the_ID() . " class='button-css color-green' type='button' value='Lire la suite'>";
                             $compte++;
                             ?>
                             </div>
