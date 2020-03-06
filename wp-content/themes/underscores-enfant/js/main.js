@@ -1,32 +1,24 @@
-console.log("ok");
 
-
-let collectionBtnNouvelle = document.querySelectorAll(".button-css");
-console.log(collectionBtnNouvelle);
- //let collectionNouvelle = 
-if (collectionBtnNouvelle)
-{
-    for (let btn of collectionBtnNouvelle){
-            console.log(btn.id)
-            btn.addEventListener('click',Ajax)
+window.addEventListener("load",function(evt){
+    let collectionBtnNouvelle = document.querySelectorAll(".button-css");
+    if (collectionBtnNouvelle){
+        for (let btn of collectionBtnNouvelle){
+                btn.addEventListener('click',Ajax)
+        }
     }
-}
+});
+ //let collectionNouvelle = 
 
 
 function Ajax(evt) {
-    
-    //  instructions ici
-
+    let id = evt.target.getAttribute("id");
+    let numberId = evt.target.getAttribute("data");;
     let maRequete = new XMLHttpRequest();
-    console.log(maRequete)
-    maRequete.open('GET', 'http://localhost/2020-veille/wp-json/wp/v2/posts'); // modifier ici
+    maRequete.open('GET', 'http://localhost/wordpress/wp-json/wp/v2/posts'); // modifier ici
     maRequete.onload = function () {
-        console.log(maRequete)
         if (maRequete.status >= 200 && maRequete.status < 400) {
             let data = JSON.parse(maRequete.responseText);
-            console.log(evt.target.dataset.checked)
-            // instructions ici
-            creationHTML(data);  // paramètres à ajouter
+            creationHTML(data[id] ,id);
         } else {
             console.log('La connexion est faite mais il y a une erreur')
         }
@@ -42,13 +34,14 @@ function Ajax(evt) {
 
 ///////////////////////////////////////////////////////
 
-function creationHTML(postsData){
+function creationHTML(postsData, id){
+    console.log(id);
+    let contenuNouvelle = document.querySelectorAll(".division-vide");
+    console.log(contenuNouvelle);
     let monHtmlString = '';
-    for (elm of postsData) {
-        monHtmlString += '<h2>' + elm.title.rendered + '</h2>'
-        monHtmlString += elm.content.rendered;
-    }
-    contenuNouvelle.innerHTML = monHtmlString; 
+        monHtmlString += '<h2>' + postsData.title.rendered + '</h2>';
+        monHtmlString += postsData.content.rendered;
+    contenuNouvelle[id].innerHTML = monHtmlString; 
 }
 
 

@@ -5,6 +5,7 @@
         <?php
         $query = new WP_Query( array( 'category_name' => "nouvellle"));
         if ( $query->have_posts() ) {
+            $compte = 0;
             while ( $query->have_posts() ) {
                     $query->the_post();
 					?><div class = "structure-nouvellle">
@@ -15,7 +16,8 @@
                             <?php
                             echo '<h1><a href="'.get_permalink( $id ).'">' . get_the_title() .  '</a></h1>';
                             echo the_excerpt();
-                            echo "<input class='button-css' type='button' value='Lire la suite'>";
+                            echo "<input id=" .  $compte . " data=" . get_the_ID() . " class='button-css' type='button' value='Lire la suite'>";
+                            $compte++;
                             ?>
                             </div>
                             <div class="division-vide"></div>
